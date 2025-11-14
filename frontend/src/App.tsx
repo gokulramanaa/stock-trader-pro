@@ -39,7 +39,7 @@ export type DashboardSummary = {
 
 type ApiListResponse<T> = {
   results?: T[];
-} & T[];
+};
 
 const currencyFormatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
