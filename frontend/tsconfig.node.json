@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "composite": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./node_modules/.tsbuild"
   },
   "include": ["vite.config.ts"]
 }

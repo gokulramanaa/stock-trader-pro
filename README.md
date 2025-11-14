@@ -55,6 +55,17 @@ npm test
 
 The React dashboard polls the API every minute to stay aligned with the automation requirements and highlights trades triggered by ±5% intraday moves.
 
+## Hosting the dashboard on GitHub Pages
+
+This repository includes a GitHub Actions workflow (`.github/workflows/deploy-frontend.yml`) that builds the React dashboard and publishes the static assets to the `gh-pages` branch. The workflow is triggered on every push to the `main` branch (and can also be run manually with the **Run workflow** button). To make the site available at `https://<user>.github.io/<repo>/`:
+
+1. Push the latest changes to `main` so the **Deploy frontend to GitHub Pages** workflow runs successfully.
+2. In the repository settings under **Pages**, set the source to **GitHub Actions**. GitHub will automatically serve the deployed artifact once the workflow finishes.
+
+During the workflow run the environment variable `VITE_BASE_PATH` is set to `/<repo>/`, ensuring that all bundled assets are referenced correctly from the GitHub Pages sub-path. If your deployment uses a custom domain or a different repository name, override `VITE_BASE_PATH` (either in the workflow file or via an environment variable) with the appropriate base URL.
+
+If the backend API is hosted anywhere other than `http://localhost:8000/api`, set `VITE_API_BASE_URL` (for example via GitHub repository secrets or environment variables) so the static dashboard knows how to reach the live API.
+
 ## Next steps
 
 - Connect to Alpaca's WebSocket/REST feeds to populate prices and trigger trades.

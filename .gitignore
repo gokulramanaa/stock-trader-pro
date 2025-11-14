@@ -13,6 +13,7 @@ node_modules/
 frontend/node_modules/
 build/
 frontend/dist/
+*.tsbuildinfo
 *.log
 
 # Editor
